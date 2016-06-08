@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Request small file every 2 seconds to test TCP latency</title>
+  <script src="experiment.js"></script>
+  </head>
+  <body>
+    <h1>Request small file every 2 seconds to test TCP latency</h1>
+
+
+    <div id="latencyTestButton">
+      <input type="button" id="latencyTestButton" value="Run Latency Test" style="width: 200px">
+    </div>
+
+    <p></p>
+
+    You can control images and iterations by modifying the URL as follows: latencyTest.html?images=3&iterations=10    
+
+    <script>
+      document.getElementById("latencyTestButton").addEventListener("click", function() {
+        var opened = window.open("", "title", "height=1000, width =1125,menubar,status,scrollbars=no",true);
+        opened.document.write(pageCode);
+      });
+    </script  
+  </body>
+</html>
