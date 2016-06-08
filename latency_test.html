@@ -1,10 +1,11 @@
+
 <!doctype html>
 <html>
   <head>
-    <title>Request small file every 2 seconds to test TCP latency</title>
+    <title>Latency Test </title>
   </head>
   <body>
-<h1>Request small file every 2 seconds to test TCP latency</h1>
+<h1>Loads Small images every 2 seconds</h1>
 
     <script type="text/javascript">
       function getUrlValue(varSearch){
@@ -17,6 +18,7 @@
           }
         }
       }
+
     </script>
 
     <script>
@@ -24,24 +26,44 @@
     if (getUrlValue("images")) {
       numberOfImages = getUrlValue("images");
     }
-    maxClusters = 10;
+    maxIterations = 10;
     if (getUrlValue("iterations")) {
-      maxClusters = getUrlValue("iterations");
+      maxIterations = getUrlValue("iterations");
     }
-    var myVar = setInterval(function(){ myTimer() }, 2000);
-    var randomizer = 0;
-    function myTimer() {
-      for (x = 0; x < numberOfImages; x++) {
-        document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=" + ((randomizer + 1) * 2 - 1) + "rnd=" + Math.random() + "'>");
-      }
+    innerIntervalMs = 50;
+    if (getUrlValue("msBetweenImages")) {
+      innerIntervalMs = getUrlValue("msBetweenImages");
+    }
+
+    var myOuterInterval = setInterval(function(){ runInnerInterval() }, 2000);
+    var randomizer = 1;
+    var imageCount = 0;
+    var iterationCount = 0;
+
+    function loadImages() {
       
-      if (randomizer == ((maxClusters) * 10)) {
-        clearInterval (myVar);
-        alert("You can control images and iterations by modifying the URL as follows: heckbringer.github.io/latency_test.html?images=3&iterations=10")
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=" + (randomizer) + "rnd=" + Math.random() + "'>");
+      imageCount = imageCount + 1;
+      randomizer = randomizer + 1;
+      if (imageCount == numberOfImages) {
+        imageCount = 0;
+        iterationCount = iterationCount + 1;
+        if (iterationCount == maxIterations) {
+          clearInterval (myOuterInterval);
+          alert("You can change the number of images per iteration, the number of iterations, and the milliseconds between each image (which you may need to do depending on how much latency there is). This is the format for doing so (includes defaults): http://heckbringer.github.io/latencyTest.html?images=3&iterations=10&msBetweenImages=50")
+        }
+        clearInterval (myInnerInterval);
       }
-      randomizer = randomizer + 10;
     }
+
+
+
+    function runInnerInterval() {
+      myInnerInterval = setInterval(function(){ loadImages() }, innerIntervalMs);
+    }
+
     </script>
-      
+
   </body>
+</html>
 </html>
