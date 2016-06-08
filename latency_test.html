@@ -35,10 +35,14 @@
       innerIntervalMs = getUrlValue("msBetweenImages");
     }
 
-    var myOuterInterval = setInterval(function(){ runInnerInterval() }, 2000);
     var randomizer = 1;
     var imageCount = 0;
     var iterationCount = 0;
+
+    document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=" + (randomizer) + "rnd=" + Math.random() + "'>");
+    randomizer = randomizer + 1;
+
+    var myOuterInterval = setInterval(function(){ runInnerInterval() }, 2000);
 
     function loadImages() {
       
@@ -65,5 +69,4 @@
     </script>
 
   </body>
-</html>
 </html>
