@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Request small file every 2 seconds to test TCP latency</title>
+  </head>
+  <body>
+<h1>Request small file every 2 seconds to test TCP latency</h1>
+    <script type="text/javascript">
+      function sleep(milliseconds){
+        var start = new Date().getTime();
+        var keep_looping = true;
+        while (keep_looping) {
+          if ((new Date().getTime() - start)> milliseconds) {
+            keep_looping = false;
+          }
+        }
+      }
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=1rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=3rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=5rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=7rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=9rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=11rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=13rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=15rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=17rnd=" +
+      Math.random() + "'>");
+    </script>
+    <script>
+      sleep(2000);
+      document.write("<img src='https://s.yimg.com/dh/ap/default/130909/y_200_a.png?req=19rnd=" +
+      Math.random() + "'>");
+    </script>
+  </body>
+</html>
