@@ -4,8 +4,8 @@
   <head>
     <title>Request images small files every 2 seconds to test TCP latency</title>
   </head>
-  <body>
-<h1>Request images small files every 2 seconds to test TCP latency in http or https</h1>
+  <body onload="onLoadAlert()">
+  <h1>Request images small files every 2 seconds to test TCP latency in http or https</h1>
 
     <script type="text/javascript">
       function getUrlValue(varSearch){
@@ -30,6 +30,12 @@
     if (getUrlValue("https")) {
       https = getUrlValue("https");
     }
+    </script>
+    
+    <script>
+      function onLoadALert() {
+        alert ("Page is loaded");
+      }
     </script>
     
 
