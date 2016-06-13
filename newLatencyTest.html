@@ -11,7 +11,9 @@
       function init() {
         alert ("Page is loaded");
       }
-      window.addEventListener("load", init, false);
+      var body = document.getElementsByTagName("body")[0];
+      
+      body.addEventListener("load", init, false);
     </script>
 
     <script type="text/javascript">
