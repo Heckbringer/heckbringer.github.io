@@ -4,7 +4,7 @@
   <head>
     <title>Request images small files every 2 seconds to test TCP latency</title>
   </head>
-  <body onload="onLoadAlert()">
+  <body>
   <h1>Request images small files every 2 seconds to test TCP latency in http or https</h1>
 
     <script type="text/javascript">
@@ -18,7 +18,8 @@
           }
         }
       }
-
+    
+    document.onload = onLoadAlert();
     </script>
 
     <script>
