@@ -8,6 +8,10 @@
   <h1>Request images small files every 2 seconds to test TCP latency in http or https</h1>
 
     <script type="text/javascript">
+      window.addEventListener("load", onLoadAlert, false);
+    </script>
+
+    <script type="text/javascript">
       function getUrlValue(varSearch){
         var searchString = window.location.search.substring(1);
         var variableArray = searchString.split('&');
@@ -19,7 +23,6 @@
         }
       }
     
-    document.onload = onLoadAlert();
     </script>
 
     <script>
